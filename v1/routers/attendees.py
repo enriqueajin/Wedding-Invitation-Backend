@@ -11,26 +11,16 @@ router = APIRouter(
     tags=["attendees"]
 )
 
-@router.get(
-    "/",
-    status_code=200,
-    response_model=AttendanceCollection,
-    response_model_by_alias=False
-)
+@router.get("/", status_code=200)
 async def get_attendance():
     """ Get the attendance list
     
     Returns: AttendanceCollection object (list of Attendance)
     """
     attendance_list = list_serial(attendance_collection.find())
-    return AttendanceCollection(attendance_list=attendance_list)
+    return attendance_list
 
-@router.get(
-    "/{id}",
-    status_code=200,
-    response_model=Attendance,
-    response_model_by_alias=False
-)
+@router.get("/{id}", status_code=200)
 async def get_attendance_entry_by_id(id: str):
     """ Get a single entry of the attendance list
     
@@ -38,6 +28,7 @@ async def get_attendance_entry_by_id(id: str):
     """
     if ObjectId.is_valid(id):
         attendance_entry = individual_serial(attendance_collection.find_one({"_id": ObjectId(id)}))
+        print(attendance_collection)
 
         if attendance_entry is not None:
             return attendance_entry

@@ -1,8 +1,8 @@
-from pydantic import BaseModel, Field
-from typing import List, Optional
+from pydantic import BaseModel
+from typing import List
 
 class Attendance(BaseModel):
-    id: Optional[str] = None
+    is_attending: bool
     name: str 
     attendees_quantity: int 
     message: str | str = ""
