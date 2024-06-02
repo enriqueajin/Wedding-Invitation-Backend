@@ -4,7 +4,8 @@ def individual_serial(attendance) -> dict:
         "is_attending": bool(attendance["is_attending"]),
         "name": attendance["name"],
         "attendees_quantity": int(attendance["attendees_quantity"]),
-        "message": attendance["message"]
+        "message": attendance["message"],
+        "type": attendance["type"]
     }
 
 def list_serial(attendance_entries) -> list:

@@ -6,6 +6,7 @@ class Attendance(BaseModel):
     name: str 
     attendees_quantity: int 
     message: str | str = ""
+    type: str
 
 class AttendanceCollection(BaseModel):
     attendance_list: List[Attendance]
