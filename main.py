@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from v1.routers import attendees
+from mangum import Mangum
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+handler = Mangum(app)
 
 # Routers
 app.include_router(attendees.router)
