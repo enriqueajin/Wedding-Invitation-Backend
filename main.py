@@ -4,14 +4,12 @@ from mangum import Mangum
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-handler = Mangum(app)
 
 # Routers
 app.include_router(attendees.router)
 
 origins = [
-    "http://localhost:8080",
-    "http://localhost:8081",
+    "http://localhost",
     "https://enriqueajin.github.io"
 ]
 
