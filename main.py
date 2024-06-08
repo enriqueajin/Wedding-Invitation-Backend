@@ -9,7 +9,9 @@ app = FastAPI()
 app.include_router(attendees.router)
 
 origins = [
-    "http://localhost",
+    "http://localhost:3000",
+    "http://localhost:8080",
+    "http://localhost:8081",
     "https://enriqueajin.github.io"
 ]
 
